@@ -15,8 +15,14 @@ app.get('/', (req, res) => {
 })
 
 app.get('/json', (req, res) => {
-    res.json({'message': 'Hello json'})
-    console.log('enetered /json')
+    if (process.env.MESSAGE_STYLE === 'uppercase') {
+      res.json({'message': 'HELLO JSON'})
+      console.log('entered json with uppercase')
+    }
+    else {
+      res.json({'message': 'Hello json'})
+      console.log('entered json with lowercase')
+    }
 })
 
 
